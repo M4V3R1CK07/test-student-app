@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 export default async function Home() {
   const supabase = await createClient()
@@ -28,17 +29,17 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glass-panel p-6 rounded-2xl border-white/10 opacity-50 cursor-not-allowed">
-            <h3 className="font-bold text-lg mb-2">🗓️ Unified Planner</h3>
-            <p className="text-sm">Phase 2 Module: Pending Implementation</p>
-          </div>
-          <div className="glass-panel p-6 rounded-2xl border-white/10 opacity-50 cursor-not-allowed">
-            <h3 className="font-bold text-lg mb-2">⏱️ Focus Timer</h3>
-            <p className="text-sm">Phase 2 Module: Pending Implementation</p>
-          </div>
-          <div className="glass-panel p-6 rounded-2xl border-white/10 opacity-50 cursor-not-allowed">
-            <h3 className="font-bold text-lg mb-2">💰 Financial Tracker</h3>
-            <p className="text-sm">Phase 2 Module: Pending Implementation</p>
+          <Link href="/planner" className="glass-panel p-6 rounded-3xl border-white/20 hover:scale-[1.03] hover:border-primary/50 hover:shadow-primary/20 transition-all cursor-pointer group">
+            <h3 className="font-extrabold text-xl mb-2 flex items-center gap-2">🗓️ Unified Planner <span className="opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 ml-auto">→</span></h3>
+            <p className="text-sm text-foreground/70 font-medium">Manage your calendar and actionable to-do list synchronously.</p>
+          </Link>
+          <Link href="/timer" className="glass-panel p-6 rounded-3xl border-white/20 hover:scale-[1.03] hover:border-primary/50 hover:shadow-primary/20 transition-all cursor-pointer group">
+            <h3 className="font-extrabold text-xl mb-2 flex items-center gap-2">⏱️ Focus Timer <span className="opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 ml-auto">→</span></h3>
+            <p className="text-sm text-foreground/70 font-medium">Pomodoro sessions with Strict Mode and procedural ambient noise.</p>
+          </Link>
+          <div className="glass-panel p-6 rounded-3xl border-transparent opacity-50 cursor-not-allowed">
+            <h3 className="font-extrabold text-xl mb-2">💰 Financial Tracker</h3>
+            <p className="text-sm text-foreground/70 font-medium">Phase 2 Module: Pending Implementation</p>
           </div>
         </div>
       </div>
